@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fellow Travellers</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster">
+    <style>
+        
+        body {
+            font-family: 'segoe print', cursive;
+            
+
+        }
+
+        .page-header {
+            text-align: center;
+            color: white;
+            background-color: #fd3ca3;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+
+        }
+
+        .traveler-list {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 10px;
+        }
+
+        .traveler {
+            display: flex;
+            align-items: center;
+            justify-content: space-between; 
+            margin: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: #f7f7f7;
+        }
+
+        .profile-pic {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-right: 10px;
+            background-color: #ddd;
+             
+        }
+
+        .name {
+            font-weight: bold;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+        ;            
+
+        font-size: x-large;
+        }
+
+        .send-request-button {
+            background-color: #fd3ca3;
+            color: white;
+            border: none;
+            padding: 8px 10px;
+            cursor: pointer;
+        }
+        .background-image {
+            background-image: url("public/page2.jpg");
+            height: 100vh;
+            width: 100vw;
+            background-repeat: no-repeat;
+            background-size: cover;
+            margin-bottom: 0;
+            position: relative ;}
+    </style>
+</head>
+<body>
+    <div class="background-image">
+
+    <div class="page-header">
+        <h1>Fellow Travellers</h1>
+    </div>
+    
+    <div class="traveler-list" id="travelerList">
+    </div>
+
+    <script>
+        
+        const travelerData = [
+            { id: 1, name: "Sarthak" },
+            { id: 2, name: "Dhruv" },
+            { id: 3, name: "Chesta" },
+            
+        ];
+
+        
+        function populateTravelers() {
+            const travelerListContainer = document.getElementById("travelerList");
+
+            travelerData.forEach((traveler) => {
+                const travelerElement = document.createElement("div");
+                travelerElement.className = "traveler";
+
+                const profilePic = document.createElement("div");
+                profilePic.className = "profile-pic";
+
+                const name = document.createElement("span");
+                name.className = "name";
+                name.textContent = traveler.name;
+
+                const sendRequestButton = document.createElement("button");
+                sendRequestButton.className = "send-request-button";
+                sendRequestButton.textContent = "Send Request"; 
+
+                travelerElement.appendChild(profilePic);
+                travelerElement.appendChild(name);
+                travelerElement.appendChild(sendRequestButton);
+
+                travelerListContainer.appendChild(travelerElement);
+            });
+        }
+
+        
+        populateTravelers();
+    </script>
+</body>
+</html>
+
